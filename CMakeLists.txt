@@ -10,7 +10,7 @@ project(boost_core VERSION "${BOOST_SUPERPROJECT_VERSION}" LANGUAGES CXX)
 add_library(boost_core INTERFACE)
 add_library(Boost::core ALIAS boost_core)
 
-target_include_directories(boost_core INTERFACE include)
+target_include_directories(boost_core INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)
 
 target_link_libraries(boost_core
   INTERFACE
