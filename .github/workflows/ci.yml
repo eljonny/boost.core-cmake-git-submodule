@@ -1,5 +1,5 @@
 # Copyright 2020-2021 Peter Dimov
-# Copyright 2021-2025 Andrey Semashev
+# Copyright 2021-2026 Andrey Semashev
 #
 # Distributed under the Boost Software License, Version 1.0.
 # (See accompanying file LICENSE_1_0.txt or copy at http://boost.org/LICENSE_1_0.txt)
@@ -112,43 +112,48 @@ jobs:
           - toolset: gcc-11
             cxxstd: "03,11,14,17,20,23"
             address-model: 32,64
-            os: ubuntu-22.04
+            os: ubuntu-latest
+            container: ubuntu:22.04
             install:
               - g++-11-multilib
           - toolset: gcc-12
             cxxstd: "03,11,14,17,20,23"
             address-model: 32,64
-            os: ubuntu-22.04
+            os: ubuntu-latest
+            container: ubuntu:22.04
             install:
               - g++-12-multilib
           - toolset: gcc-13
             cxxstd: "03,11,14,17,20,23"
             address-model: 32,64
-            os: ubuntu-latest
-            container: ubuntu:24.04
+            os: ubuntu-24.04
             install:
               - g++-13-multilib
           - toolset: gcc-14
-            cxxstd: "03,11,14,17,20,23"
+            cxxstd: "03,11,14,17,20,23,26"
             address-model: 32,64
-            os: ubuntu-latest
-            container: ubuntu:24.04
+            os: ubuntu-24.04
             install:
               - g++-14-multilib
           - toolset: gcc-15
-            cxxstd: "03,11,14,17,20,23,2c"
+            cxxstd: "03,11,14,17,20,23,26"
             address-model: 32,64
-            os: ubuntu-latest
-            container: ubuntu:25.04
+            os: ubuntu-26.04
             install:
               - g++-15-multilib
-          - name: UBSAN
-            toolset: gcc-12
-            cxxstd: "03,11,14,17,20,23"
-            ubsan: 1
-            os: ubuntu-22.04
+          - toolset: gcc-16
+            cxxstd: "03,11,14,17,20,23,26"
+            address-model: 32,64
+            os: ubuntu-26.04
             install:
-              - g++-12
+              - g++-16-multilib
+          - name: UBSAN
+            toolset: gcc-15
+            cxxstd: "03,11,14,17,20,23,26"
+            ubsan: 1
+            os: ubuntu-26.04
+            install:
+              - g++-15
 
           # Linux, clang
           - toolset: clang
@@ -227,7 +232,8 @@ jobs:
           - toolset: clang
             compiler: clang++-11
             cxxstd: "03,11,14,17,20"
-            os: ubuntu-22.04
+            os: ubuntu-latest
+            container: ubuntu:22.04
             install:
               - clang-11
               - g++-11
@@ -235,7 +241,8 @@ jobs:
           - toolset: clang
             compiler: clang++-12
             cxxstd: "03,11,14,17,20,2b"
-            os: ubuntu-22.04
+            os: ubuntu-latest
+            container: ubuntu:22.04
             install:
               - clang-12
               - g++-11
@@ -243,7 +250,8 @@ jobs:
           - toolset: clang
             compiler: clang++-13
             cxxstd: "03,11,14,17,20,2b"
-            os: ubuntu-22.04
+            os: ubuntu-latest
+            container: ubuntu:22.04
             install:
               - clang-13
               - g++-11
@@ -251,7 +259,8 @@ jobs:
           - toolset: clang
             compiler: clang++-14
             cxxstd: "03,11,14,17,20,2b"
-            os: ubuntu-22.04
+            os: ubuntu-latest
+            container: ubuntu:22.04
             install:
               - clang-14
               - g++-11
@@ -259,7 +268,8 @@ jobs:
           - toolset: clang
             compiler: clang++-15
             cxxstd: "03,11,14,17,20,2b"
-            os: ubuntu-22.04
+            os: ubuntu-latest
+            container: ubuntu:22.04
             install:
               - clang-15
               - g++-11
@@ -267,7 +277,8 @@ jobs:
           - toolset: clang
             compiler: clang++-15
             cxxstd: "03,11,14,17,20,2b"
-            os: ubuntu-22.04
+            os: ubuntu-latest
+            container: ubuntu:22.04
             install:
               - clang-15
               - libc++-15-dev
@@ -277,8 +288,7 @@ jobs:
           - toolset: clang
             compiler: clang++-16
             cxxstd: "03,11,14,17,20,2b"
-            os: ubuntu-latest
-            container: ubuntu:24.04
+            os: ubuntu-24.04
             install:
               - clang-16
               - libc++-16-dev
@@ -287,9 +297,8 @@ jobs:
             linkflags: -stdlib=libc++
           - toolset: clang
             compiler: clang++-17
-            cxxstd: "03,11,14,17,20,2b"
-            os: ubuntu-latest
-            container: ubuntu:24.04
+            cxxstd: "03,11,14,17,20,23"
+            os: ubuntu-24.04
             install:
               - clang-17
               - libc++-17-dev
@@ -298,9 +307,8 @@ jobs:
             linkflags: -stdlib=libc++
           - toolset: clang
             compiler: clang++-18
-            cxxstd: "03,11,14,17,20,2b"
-            os: ubuntu-latest
-            container: ubuntu:24.04
+            cxxstd: "03,11,14,17,20,23,26"
+            os: ubuntu-24.04
             install:
               - clang-18
               - libc++-18-dev
@@ -309,9 +317,8 @@ jobs:
             linkflags: -stdlib=libc++
           - toolset: clang
             compiler: clang++-19
-            cxxstd: "03,11,14,17,20,2b"
-            os: ubuntu-latest
-            container: ubuntu:24.04
+            cxxstd: "03,11,14,17,20,23,26"
+            os: ubuntu-24.04
             install:
               - clang-19
               - libc++-19-dev
@@ -320,9 +327,8 @@ jobs:
             linkflags: -stdlib=libc++
           - toolset: clang
             compiler: clang++-20
-            cxxstd: "03,11,14,17,20,23,2c"
-            os: ubuntu-latest
-            container: ubuntu:24.04
+            cxxstd: "03,11,14,17,20,23,26"
+            os: ubuntu-26.04
             install:
               - clang-20
               - libc++-20-dev
@@ -331,45 +337,54 @@ jobs:
             linkflags: -stdlib=libc++
           - toolset: clang
             compiler: clang++-21
-            cxxstd: "03,11,14,17,20,23,2c"
-            os: ubuntu-latest
-            container: ubuntu:25.10
+            cxxstd: "03,11,14,17,20,23,26"
+            os: ubuntu-26.04
             install:
               - clang-21
               - libc++-21-dev
               - libc++abi-21-dev
             cxxflags: -stdlib=libc++
             linkflags: -stdlib=libc++
+          - toolset: clang
+            compiler: clang++-22
+            cxxstd: "03,11,14,17,20,23,26"
+            os: ubuntu-26.04
+            install:
+              - clang-22
+              - libc++-22-dev
+              - libc++abi-22-dev
+            cxxflags: -stdlib=libc++
+            linkflags: -stdlib=libc++
           - name: UBSAN
             toolset: clang
-            compiler: clang++-15
-            cxxstd: "03,11,14,17,20,2b"
+            compiler: clang++-22
+            cxxstd: "03,11,14,17,20,23,26"
             cxxflags: -stdlib=libc++
             linkflags: -stdlib=libc++
             ubsan: 1
-            os: ubuntu-22.04
+            os: ubuntu-26.04
             install:
-              - clang-15
-              - libc++-15-dev
-              - libc++abi-15-dev
+              - clang-22
+              - libc++-22-dev
+              - libc++abi-22-dev
 
           - name: ARM
-            toolset: gcc-13
-            cxxstd: "03-gnu,11-gnu,14-gnu,17-gnu,20-gnu,23-gnu"
-            os: ubuntu-24.04-arm
-            container: ubuntu:24.04
+            toolset: gcc-15
+            cxxstd: "03-gnu,11-gnu,14-gnu,17-gnu,20-gnu,23-gnu,26-gnu"
+            os: ubuntu-26.04-arm
+            container: ubuntu:26.04
             install:
-              - g++-13
+              - g++-15
 
           - toolset: clang
             os: macos-14
             cxxstd: "03,11,14,17,20,2b"
           - toolset: clang
             os: macos-15
-            cxxstd: "03,11,14,17,20,23,2c"
+            cxxstd: "03,11,14,17,20,23,26"
           - toolset: clang
             os: macos-26
-            cxxstd: "03,11,14,17,20,23,2c"
+            cxxstd: "03,11,14,17,20,23,26"
 
     timeout-minutes: 45
     runs-on: ${{matrix.os}}
@@ -501,6 +516,7 @@ jobs:
             BUILD_JOBS=$((nproc || sysctl -n hw.ncpu) 2> /dev/null)
             echo "BUILD_JOBS=$BUILD_JOBS" >> $GITHUB_ENV
             echo "CMAKE_BUILD_PARALLEL_LEVEL=$BUILD_JOBS" >> $GITHUB_ENV
+            echo BUILD_JOBS: $BUILD_JOBS
             DEPINST_ARGS=()
             GIT_VERSION="$(git --version | sed -e 's/git version //')"
             GIT_HAS_JOBS=1
@@ -552,6 +568,11 @@ jobs:
             git submodule update --init tools/boostdep
             DEPINST_ARGS+=("$LIBRARY")
             python tools/boostdep/depinst/depinst.py "${DEPINST_ARGS[@]}"
+
+      - name: Run tests
+        if: matrix.cmake_tests == ''
+        run: |
+            cd boost-root
             ./bootstrap.sh
             ./b2 headers
             if [ -n "${{matrix.compiler}}" -o -n "$GCC_TOOLCHAIN_ROOT" ]
@@ -563,11 +584,6 @@ jobs:
                 fi
                 echo " ;" >> ~/user-config.jam
             fi
-
-      - name: Run tests
-        if: matrix.cmake_tests == ''
-        run: |
-            cd boost-root
             B2_ARGS=("-j" "$BUILD_JOBS" "toolset=${{matrix.toolset}}" "cxxstd=${{matrix.cxxstd}}")
             if [ -n "${{matrix.build_variant}}" ]
             then
@@ -582,7 +598,7 @@ jobs:
             if [ -n "${{matrix.ubsan}}" ]
             then
                 export UBSAN_OPTIONS="print_stacktrace=1"
-                B2_ARGS+=("undefined-sanitizer=norecover" "linkflags=-fuse-ld=gold" "define=UBSAN=1" "debug-symbols=on" "visibility=global")
+                B2_ARGS+=("undefined-sanitizer=norecover" "define=UBSAN=1" "debug-symbols=on" "visibility=global")
             fi
             if [ -n "${{matrix.cxxflags}}" ]
             then
@@ -600,6 +616,10 @@ jobs:
             ./b2 "${B2_ARGS[@]}"
 
   windows:
+    defaults:
+      run:
+        shell: cmd
+
     strategy:
       fail-fast: false
       matrix:
@@ -629,7 +649,6 @@ jobs:
 
     steps:
       - name: Setup Boost
-        shell: cmd
         run: |
             echo GITHUB_REPOSITORY: %GITHUB_REPOSITORY%
             for /f %%i in ("%GITHUB_REPOSITORY%") do set LIBRARY=%%~nxi
@@ -661,22 +680,25 @@ jobs:
             rmdir /s /q "..\snapshot"
             git submodule update --init tools/boostdep
             python tools/boostdep/depinst/depinst.py --git_args "--jobs %GIT_FETCH_JOBS%" %LIBRARY%
-            cmd /c bootstrap
-            b2 -d0 headers
 
       - name: Run tests
-        shell: cmd
         run: |
             cd boost-root
+            cmd /c bootstrap
+            b2 -d0 headers
             b2 -j %NUMBER_OF_PROCESSORS% libs/%LIBRARY%/test toolset=${{matrix.toolset}} cxxstd=${{matrix.cxxstd}} address-model=${{matrix.addrmd}} variant=debug,release embed-manifest-via=linker
 
   posix-cmake-subdir:
+    defaults:
+      run:
+        shell: bash
+
     strategy:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-22.04
           - os: ubuntu-24.04
+          - os: ubuntu-26.04
           - os: macos-14
           - os: macos-15
           - os: macos-26
@@ -738,12 +760,16 @@ jobs:
           ctest --output-on-failure --no-tests=error
 
   posix-cmake-install:
+    defaults:
+      run:
+        shell: bash
+
     strategy:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-22.04
           - os: ubuntu-24.04
+          - os: ubuntu-26.04
           - os: macos-14
           - os: macos-15
           - os: macos-26
@@ -815,12 +841,16 @@ jobs:
           ctest --output-on-failure --no-tests=error
 
   posix-cmake-test:
+    defaults:
+      run:
+        shell: bash
+
     strategy:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-22.04
           - os: ubuntu-24.04
+          - os: ubuntu-26.04
           - os: macos-14
           - os: macos-15
           - os: macos-26
@@ -896,6 +926,10 @@ jobs:
           ctest --output-on-failure --no-tests=error
 
   windows-cmake-subdir:
+    defaults:
+      run:
+        shell: cmd
+
     strategy:
       fail-fast: false
       matrix:
@@ -908,7 +942,6 @@ jobs:
 
     steps:
       - name: Setup Boost
-        shell: cmd
         run: |
           echo GITHUB_REPOSITORY: %GITHUB_REPOSITORY%
           for /f %%i in ("%GITHUB_REPOSITORY%") do set LIBRARY=%%~nxi
@@ -942,7 +975,6 @@ jobs:
           python tools/boostdep/depinst/depinst.py --git_args "--jobs %GIT_FETCH_JOBS%" %LIBRARY%
 
       - name: Use library with add_subdirectory (Debug)
-        shell: cmd
         run: |
           cd boost-root/libs/%LIBRARY%/test/cmake_subdir_test
           mkdir __build__ && cd __build__
@@ -951,13 +983,16 @@ jobs:
           ctest --output-on-failure --no-tests=error -C Debug
 
       - name: Use library with add_subdirectory (Release)
-        shell: cmd
         run: |
           cd boost-root/libs/%LIBRARY%/test/cmake_subdir_test/__build__
           cmake --build . --config Release
           ctest --output-on-failure --no-tests=error -C Release
 
   windows-cmake-install:
+    defaults:
+      run:
+        shell: cmd
+
     strategy:
       fail-fast: false
       matrix:
@@ -970,7 +1005,6 @@ jobs:
 
     steps:
       - name: Setup Boost
-        shell: cmd
         run: |
           echo GITHUB_REPOSITORY: %GITHUB_REPOSITORY%
           for /f %%i in ("%GITHUB_REPOSITORY%") do set LIBRARY=%%~nxi
@@ -1004,26 +1038,22 @@ jobs:
           python tools/boostdep/depinst/depinst.py --git_args "--jobs %GIT_FETCH_JOBS%" %LIBRARY%
 
       - name: Configure
-        shell: cmd
         run: |
           cd boost-root
           mkdir __build__ && cd __build__
           cmake -DBOOST_INCLUDE_LIBRARIES=%LIBRARY% -DCMAKE_INSTALL_PREFIX=C:/cmake-prefix ..
 
       - name: Install (Debug)
-        shell: cmd
         run: |
           cd boost-root/__build__
           cmake --build . --target install --config Debug
 
       - name: Install (Release)
-        shell: cmd
         run: |
           cd boost-root/__build__
           cmake --build . --target install --config Release
 
       - name: Use the installed library (Debug)
-        shell: cmd
         run: |
           cd boost-root/libs/%LIBRARY%/test/cmake_install_test && mkdir __build__ && cd __build__
           cmake -DCMAKE_INSTALL_PREFIX=C:/cmake-prefix ..
@@ -1031,13 +1061,16 @@ jobs:
           ctest --output-on-failure --no-tests=error -C Debug
 
       - name: Use the installed library (Release)
-        shell: cmd
         run: |
           cd boost-root/libs/%LIBRARY%/test/cmake_install_test/__build__
           cmake --build . --config Release
           ctest --output-on-failure --no-tests=error -C Release
 
   windows-cmake-test:
+    defaults:
+      run:
+        shell: cmd
+
     strategy:
       fail-fast: false
       matrix:
@@ -1050,7 +1083,6 @@ jobs:
 
     steps:
       - name: Setup Boost
-        shell: cmd
         run: |
           echo GITHUB_REPOSITORY: %GITHUB_REPOSITORY%
           for /f %%i in ("%GITHUB_REPOSITORY%") do set LIBRARY=%%~nxi
@@ -1084,32 +1116,27 @@ jobs:
           python tools/boostdep/depinst/depinst.py --git_args "--jobs %GIT_FETCH_JOBS%" %LIBRARY%
 
       - name: Configure
-        shell: cmd
         run: |
           cd boost-root
           mkdir __build__ && cd __build__
           cmake -DBOOST_INCLUDE_LIBRARIES=%LIBRARY% -DBUILD_TESTING=ON ..
 
       - name: Build tests (Debug)
-        shell: cmd
         run: |
           cd boost-root/__build__
           cmake --build . --target tests --config Debug
 
       - name: Run tests (Debug)
-        shell: cmd
         run: |
           cd boost-root/__build__
           ctest --output-on-failure --no-tests=error -C Debug
 
       - name: Build tests (Release)
-        shell: cmd
         run: |
           cd boost-root/__build__
           cmake --build . --target tests --config Release
 
       - name: Run tests (Release)
-        shell: cmd
         run: |
           cd boost-root/__build__
           ctest --output-on-failure --no-tests=error -C Release
