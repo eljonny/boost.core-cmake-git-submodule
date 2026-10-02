@@ -377,9 +377,6 @@ jobs:
               - g++-15
 
           - toolset: clang
-            os: macos-14
-            cxxstd: "03,11,14,17,20,2b"
-          - toolset: clang
             os: macos-15
             cxxstd: "03,11,14,17,20,23,26"
           - toolset: clang
@@ -699,7 +696,6 @@ jobs:
         include:
           - os: ubuntu-24.04
           - os: ubuntu-26.04
-          - os: macos-14
           - os: macos-15
           - os: macos-26
 
@@ -770,7 +766,6 @@ jobs:
         include:
           - os: ubuntu-24.04
           - os: ubuntu-26.04
-          - os: macos-14
           - os: macos-15
           - os: macos-26
 
@@ -851,7 +846,6 @@ jobs:
         include:
           - os: ubuntu-24.04
           - os: ubuntu-26.04
-          - os: macos-14
           - os: macos-15
           - os: macos-26
 
